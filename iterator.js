@@ -96,4 +96,21 @@ function Iterator(start, end, step, slots) {
       }
     };
     return slotIterator;
+}
+
+const SlotIt = Iterator(0, 12, 1, slotList);
+let result = SlotIt.next();
+let searchSlot;
+let selectedSlot = "D2";
+
+while (!result.done) {
+  if (result.slotNr == selectedSlot){
+    searchSlot = result;
   }
+  result = SlotIt.next();
+}
+if (searchSlot == null){
+  console.log("Slot does not exist")
+}else{
+  console.log(`You have picked ${searchSlot.name} for €${searchSlot.price}`);
+}
