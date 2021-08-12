@@ -1,4 +1,4 @@
-let slotList = [
+const slotList = [
     {
       slotNr: "A1",
       name: "Coca Cola",
