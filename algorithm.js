@@ -33,6 +33,25 @@ let coinList = [
     }
 ];
 
+ function returnCoins(coins, price, paid){
+    let returnCoinList = [];
+    let toReturn = paid - price;
+    let i = 0;
+
+    while (toReturn > 0){
+        while(toReturn < coins[i].coin){ 
+            i++
+        }
+        toReturn -= coins[i].coin;
+        returnCoinList.push(coins[i].coin);
+        i = 0;
+    }
+    return returnCoinList;
+}
+
+let getChange = returnCoins(coinList, 132, 500);
+console.log(getChange);
+
 function returnCoins(coins, price, paid){
     let returnCoinList = [];
     let toReturn = paid - price;
