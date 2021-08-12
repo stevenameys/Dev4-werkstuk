@@ -68,3 +68,32 @@ let slotList = [
       quantity: 6
     }
 ];
+
+function Iterator(start, end, step, slots) {
+    let nextIndex = start;
+    let iterationCount = 0;
+  
+    const slotIterator = {
+      next: function() {
+          let result;
+  
+          if (nextIndex < end) {
+              result = { 
+                slotNr: slots[nextIndex].slotNr,
+                name: slots[nextIndex].name, 
+                price: slots[nextIndex].price,
+                quantity : slots[nextIndex].quantity,
+                done: false 
+              }
+              nextIndex += step;
+              iterationCount++;
+              return result;
+          }
+          return { 
+            value: iterationCount, 
+            done: true 
+          }
+      }
+    };
+    return slotIterator;
+  }
